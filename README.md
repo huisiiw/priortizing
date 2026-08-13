@@ -1,23 +1,24 @@
 # Priortizing
 
-A quiet, local-first task organizer. Dump everything first; organize only when you are ready.
+A quiet AI task organizer. Dump everything first; GLM turns the note into a small, stable action view when you are ready.
 
 ## [Open the live demo →](https://huisiiw.github.io/priortizing/)
 
 ## What it does
 
-- Capture tasks as naturally as writing a note
-- Organize tasks into a small number of clear categories
-- Extract explicit dates and waiting states
-- Keep manual edits, ordering, and category overrides
-- Save everything locally on the device
+- Captures tasks as naturally as writing in Apple Notes
+- Uses Zhipu AI's `glm-4.7-flash` to understand, classify, and prioritize tasks
+- Extracts explicit Chinese dates and relative times without inventing deadlines
+- Keeps manual ordering, category names, and user overrides authoritative
+- Falls back to a local organizer if the model or network is unavailable
+- Installs as a PWA and keeps task data in the browser
 
-## Install as an app
+## Architecture
 
-Open the live demo in Chrome or Edge and choose **Install Priortizing** from the browser's install control. On macOS Safari, choose **File → Add to Dock**.
+`GitHub Pages PWA → secure server route → Zhipu GLM API`
 
-The installed PWA opens in its own window without browser tabs or an address bar, and supports offline launch.
+The model key is stored as an encrypted server-side secret and is never shipped to the browser or committed to GitHub. Model responses pass strict structural and task-ID validation before reaching the interface.
 
 ## Project status
 
-Interactive PWA prototype. The current organizer runs locally; a model-backed AI organizer is planned for the extension version.
+Working AI-enabled PWA prototype, built as a portfolio project.
